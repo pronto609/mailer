@@ -74,7 +74,7 @@ class AuthorWeeklyReportSendCommand extends Command
                 ->htmlTemplate('email/author-weekly-report.html.twig')
                 ->context([
                     'author' => $author,
-                    'article' => $articles
+                    'articles' => $articles
                 ])
             ;
             try {
