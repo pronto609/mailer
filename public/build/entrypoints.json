@@ -1,0 +1,54 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_jquery_dist_jquery_js.js",
+        "/build/vendors-node_modules_core-js_internals_define-built-in-accessor_js-node_modules_core-js_inter-551874.js",
+        "/build/vendors-node_modules_bootstrap_dist_js_bootstrap_esm_js-node_modules_core-js_modules_es_funct-adb0c3.js",
+        "/build/app.js"
+      ],
+      "css": [
+        "/build/app.css"
+      ]
+    },
+    "article_show": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_jquery_dist_jquery_js.js",
+        "/build/article_show.js"
+      ],
+      "css": [
+        "/build/article_show.css"
+      ]
+    },
+    "admin_article_form": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_jquery_dist_jquery_js.js",
+        "/build/vendors-node_modules_core-js_internals_define-built-in-accessor_js-node_modules_core-js_inter-551874.js",
+        "/build/vendors-node_modules_dropzone_dist_dropzone_css-node_modules_sortablejs_modular_sortable_esm_-46acaa.js",
+        "/build/admin_article_form.js"
+      ],
+      "css": [
+        "/build/admin_article_form.css"
+      ]
+    },
+    "account": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/account.css"
+      ]
+    },
+    "login": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/login.css"
+      ]
+    }
+  }
+}
