@@ -77,7 +77,7 @@ class SecurityController extends AbstractController
             $em->flush();
 
             $email = (new Email())
-                ->from('aliarnmailer@example.com')
+                ->from('de036150b3-8e04b8+1@inbox.mailtrap.io')
                 ->to($user->getEmail())
                 ->subject('Welcome to the Space Bar!')
                 ->text("Nice to meet you {$user->getFirstName()}! ")
