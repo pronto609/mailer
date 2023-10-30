@@ -31,6 +31,7 @@
     ],
     "dependencies": {
         "fsevents": "^2.3.3",
+        "inky": "^1.4.2",
         "webpack": "^5.89.0"
     }
 }
