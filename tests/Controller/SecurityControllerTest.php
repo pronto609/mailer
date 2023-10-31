@@ -14,6 +14,7 @@ class SecurityControllerTest extends PantherTestCase
 
         $this->assertResponseIsSuccessful();
 
+
         $button = $crawler->selectButton('Register');
         $form = $button->form();
         $form['user_registration_form[firstName]']->setValue('Ryan');
@@ -23,5 +24,10 @@ class SecurityControllerTest extends PantherTestCase
         $client->submit($form);
 
         $this->assertResponseRedirects();
+        /*
+        $this->assertEmailCount(1);
+        $email = $this->getMailerMessage(0);
+        $this->assertEmailHeaderSame($email, 'To', '');
+        */
     }
 }
