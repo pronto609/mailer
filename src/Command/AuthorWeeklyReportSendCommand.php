@@ -4,6 +4,9 @@ namespace App\Command;
 
 use App\Repository\ArticleRepository;
 use App\Repository\UserRepository;
+use Cassandra\Exception\ProtocolException;
+use Knp\Snappy\Pdf;
+use Psr\Log\LoggerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -15,6 +18,7 @@ use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\NamedAddress;
+use Twig\Environment;
 
 class AuthorWeeklyReportSendCommand extends Command
 {
@@ -31,16 +35,34 @@ class AuthorWeeklyReportSendCommand extends Command
      * @var MailerInterface
      */
     private $mailer;
+    /**
+     * @var Environment
+     */
+    private $twig;
+    /**
+     * @var Pdf
+     */
+    private $pdf;
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
 
     public function __construct(
         UserRepository $userRepository,
         ArticleRepository $articleRepository,
-        MailerInterface $mailer
+        MailerInterface $mailer,
+        Environment $twig,
+        Pdf $pdf,
+        LoggerInterface $logger
     ) {
         parent::__construct(null);
         $this->userRepository = $userRepository;
         $this->articleRepository = $articleRepository;
         $this->mailer = $mailer;
+        $this->twig = $twig;
+        $this->pdf = $pdf;
+        $this->logger = $logger;
     }
 
     protected function configure()
@@ -67,6 +89,26 @@ class AuthorWeeklyReportSendCommand extends Command
                 continue;
             }
 
+            $html = $this->twig->render('email/author-weekly-report-pdf.html.twig', [
+                'articles' => $articles
+            ]);
+//            $directoryPath = \realpath(__DIR__ . '/../..') . '/public/generic';
+//            $filepath = sprintf($directoryPath . '/author-weekly-report-pdf-%s.html', time());
+//            if (!is_dir($directoryPath)) {
+//                mkdir($directoryPath, 0777, true);
+//                if (!file_exists($filepath)) {
+//                    $file = fopen($filepath, 'w');
+//                    fwrite($file, $html);
+//                    fclose($file);
+//                }
+//            }
+            try {
+                $this->pdf->setOption("enable-local-file-access", true);
+                $pdf = $this->pdf->getOutputFromHtml($html);
+            } catch (ProtocolException $exception) {
+                $this->logger->info($exception->getMessage());
+            }
+
             $email = (new TemplatedEmail())
                 ->from(new NamedAddress('tester@emample.com', 'Tommy'))
                 ->to(new NamedAddress($author->getEmail(), $author->getFirstName()))
@@ -76,6 +118,7 @@ class AuthorWeeklyReportSendCommand extends Command
                     'author' => $author,
                     'articles' => $articles
                 ])
+                ->attach($pdf, sprintf('weekly-report-%s.pdf', date('Y-m-d')))
             ;
             try {
                 $this->mailer->send($email);
