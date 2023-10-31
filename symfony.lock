@@ -242,6 +242,9 @@
     "php-http/stopwatch-plugin": {
         "version": "1.2.0"
     },
+    "php-webdriver/webdriver": {
+        "version": "1.13.1"
+    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },
@@ -287,6 +290,9 @@
     "symfony/asset": {
         "version": "v4.1.11"
     },
+    "symfony/browser-kit": {
+        "version": "v4.3.11"
+    },
     "symfony/cache": {
         "version": "v4.1.11"
     },
@@ -326,6 +332,9 @@
     "symfony/doctrine-bridge": {
         "version": "v4.1.11"
     },
+    "symfony/dom-crawler": {
+        "version": "v4.3.11"
+    },
     "symfony/dotenv": {
         "version": "v4.1.11"
     },
@@ -361,6 +370,12 @@
             "version": "3.3",
             "ref": "af951c413e84511daefa4ddb3eb8166108a30b6c"
         }
+    },
+    "symfony/http-client": {
+        "version": "v4.3.11"
+    },
+    "symfony/http-client-contracts": {
+        "version": "v1.1.13"
     },
     "symfony/http-foundation": {
         "version": "v4.1.11"
