@@ -46,7 +46,6 @@ class Mailer
     public function sendWelcomeMessage(User $user):TemplatedEmail
     {
         $email = (new TemplatedEmail())
-            ->from(new NamedAddress('tester@emample.com', 'Tommy'))
             ->to(new NamedAddress($user->getEmail(), $user->getFirstName()))
             ->subject('Welcome to the Space Bar!')
             ->htmlTemplate('email/welcome.html.twig')
@@ -73,7 +72,6 @@ class Mailer
         $pdf = $this->pdf->getOutputFromHtml($html);
 
         $email = (new TemplatedEmail())
-            ->from(new NamedAddress('tester@emample.com', 'Tommy'))
             ->to(new NamedAddress($author->getEmail(), $author->getFirstName()))
             ->subject('Your weekly report on The space Bar!')
             ->htmlTemplate('email/author-weekly-report.html.twig')
