@@ -61,9 +61,9 @@ class Mailer
 
     public function sendAuthorWeeklyReportMessage(User $author, $articles): TemplatedEmail
     {
-        $this->entrypointLookup->reset();
+//        $this->entrypointLookup->reset();
         $cssFilesArray = $this->entrypointLookup->getCssFiles('app');
-        $cssFiles = \getenv('SITE_BASE_URL') .'/public' . array_shift($cssFilesArray);
+        $cssFiles = !empty($cssFilesArray) ? \getenv('SITE_BASE_URL') .'/public' . array_shift($cssFilesArray) : '';
         $html = $this->twig->render('email/author-weekly-report-pdf.html.twig', [
             'articles' => $articles,
             'cssFiles' => $cssFiles
@@ -71,7 +71,6 @@ class Mailer
     try {
         $this->pdf->setOption("enable-local-file-access", true);
         $pdf = $this->pdf->getOutputFromHtml($html);
-
 
         $email = (new TemplatedEmail())
             ->from(new NamedAddress('tester@emample.com', 'Tommy'))
