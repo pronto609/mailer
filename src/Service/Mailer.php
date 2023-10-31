@@ -43,7 +43,7 @@ class Mailer
         $this->twig = $twig;
     }
 
-    public function sendWelcomeMessage(User $user)
+    public function sendWelcomeMessage(User $user):TemplatedEmail
     {
         $email = (new TemplatedEmail())
             ->from(new NamedAddress('tester@emample.com', 'Tommy'))
@@ -56,9 +56,10 @@ class Mailer
         ;
 
         $this->mailer->send($email);
+        return $email;
     }
 
-    public function sendAuthorWeeklyReportMessage(User $author, $articles)
+    public function sendAuthorWeeklyReportMessage(User $author, $articles): TemplatedEmail
     {
         $this->entrypointLookup->reset();
         $cssFilesArray = $this->entrypointLookup->getCssFiles('app');
@@ -88,5 +89,7 @@ class Mailer
         } catch (TransportException $exception) {
             throw new TransportException($exception->getMessage());
         }
+
+        return $email;
     }
 }
