@@ -18,6 +18,7 @@ use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\NamedAddress;
+use Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface;
 use Twig\Environment;
 
 class AuthorWeeklyReportSendCommand extends Command
@@ -47,6 +48,10 @@ class AuthorWeeklyReportSendCommand extends Command
      * @var LoggerInterface
      */
     private $logger;
+    /**
+     * @var EntrypointLookupInterface
+     */
+    private $entrypointLookup;
 
     public function __construct(
         UserRepository $userRepository,
@@ -54,7 +59,8 @@ class AuthorWeeklyReportSendCommand extends Command
         MailerInterface $mailer,
         Environment $twig,
         Pdf $pdf,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        EntrypointLookupInterface $entrypointLookup
     ) {
         parent::__construct(null);
         $this->userRepository = $userRepository;
@@ -63,6 +69,7 @@ class AuthorWeeklyReportSendCommand extends Command
         $this->twig = $twig;
         $this->pdf = $pdf;
         $this->logger = $logger;
+        $this->entrypointLookup = $entrypointLookup;
     }
 
     protected function configure()
@@ -89,8 +96,12 @@ class AuthorWeeklyReportSendCommand extends Command
                 continue;
             }
 
+            $this->entrypointLookup->reset();
+            $cssFilesArray = $this->entrypointLookup->getCssFiles('app');
+            $cssFiles = \getenv('SITE_BASE_URL') .'/public' . array_shift($cssFilesArray);
             $html = $this->twig->render('email/author-weekly-report-pdf.html.twig', [
-                'articles' => $articles
+                'articles' => $articles,
+                'cssFiles' => $cssFiles
             ]);
 //            $directoryPath = \realpath(__DIR__ . '/../..') . '/public/generic';
 //            $filepath = sprintf($directoryPath . '/author-weekly-report-pdf-%s.html', time());
