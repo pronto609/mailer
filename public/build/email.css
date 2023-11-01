@@ -1,0 +1,49 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].oneOf[1].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[4].oneOf[1].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].oneOf[1].use[4]!./assets/css/email.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  background-color: #264459;
+  color: #ffffff;
+  /*padding: 30px 0 50px 0;*/
+  font-weight: normal;
+}
+
+hr {
+  border: none;
+  border-top: 3px solid #264459;
+  margin: 20px;
+}
+
+.welcome {
+  background-color: #264459;
+}
+
+.bottom {
+  background-color: #efefee;
+}
+
+.logo {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+table.button a {
+  background-color: #264459;
+}
+
+table.button table td {
+  background-color: #264459;
+  border: 2px solid #264459;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW1haWwuY3NzIiwibWFwcGluZ3MiOiI7OztBQUNBO0VBQ0k7RUFDQTtFQUNBO0VBQ0E7QUFDSjs7QUFDQTtFQUNJO0VBQ0E7RUFDQTtFQUNBO0FBRUo7O0FBQUE7RUFDSTtFQUNBO0VBQ0E7QUFHSjs7QUFEQTtFQUNJO0FBSUo7O0FBRkE7RUFDSTtBQUtKOztBQUhBO0VBQ0k7QUFNSjs7QUFKQTtFQUNJO0FBT0o7O0FBTEE7RUFDSTtBQVFKOztBQU5BO0VBQ0k7RUFDQTtBQVNKLEMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hc3NldHMvY3NzL2VtYWlsLnNjc3MiXSwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIn5mb3VuZGF0aW9uLWVtYWlscy9kaXN0L2ZvdW5kYXRpb24tZW1haWxzLmNzc1wiO1xuYm9keSB7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YzZjNmMztcbiAgICBmb250LWZhbWlseTogSGVsdmV0aWNhLCBBcmlhbCwgc2Fucy1zZXJpZjtcbn1cbmgxIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjY0NDU5O1xuICAgIGNvbG9yOiAjZmZmZmZmO1xuICAgIC8qcGFkZGluZzogMzBweCAwIDUwcHggMDsqL1xuICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7XG59XG5ociB7XG4gICAgYm9yZGVyOiBub25lO1xuICAgIGJvcmRlci10b3A6IDNweCBzb2xpZCAjMjY0NDU5O1xuICAgIG1hcmdpbjogMjBweDtcbn1cbi53ZWxjb21lIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjY0NDU5O1xufVxuLmJvdHRvbSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2VmZWZlZTtcbn1cbi5sb2dvIHtcbiAgICB3aWR0aDogMTAwJTtcbn1cbi50ZXh0LWNlbnRlciB7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxudGFibGUuYnV0dG9uIGEge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMyNjQ0NTk7XG59XG50YWJsZS5idXR0b24gdGFibGUgdGQge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMyNjQ0NTk7XG4gICAgYm9yZGVyOiAycHggc29saWQgIzI2NDQ1OTtcbn1cbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==*/

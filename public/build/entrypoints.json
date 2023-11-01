@@ -49,6 +49,15 @@
       "css": [
         "/build/login.css"
       ]
+    },
+    "email": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/vendors-node_modules_foundation-emails_dist_foundation-emails_css.css",
+        "/build/email.css"
+      ]
     }
   }
 }

@@ -8,6 +8,7 @@
         "dropzone": "^6.0.0-beta.2",
         "file-loader": "^6.0.0",
         "font-awesome": "^4.7.0",
+        "foundation-emails": "^2.4.0",
         "jquery": "^3.4.0",
         "popper.js": "^1.15.0",
         "postcss-loader": "^7.3.3",

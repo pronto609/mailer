@@ -50,3 +50,11 @@ services:
                 extended_type: Symfony\Component\Form\Extension\Core\Type\TextareaType }
 
     Symfony\Component\Asset\Context\RequestStackContext: '@assets.context'
+
+#    Symfony\Component\Messenger\Transport\Serialization\Serializer:
+#        arguments:
+#            $context:
+#                messenger_serialization: true
+#                circular_reference_limit: 1
+#                JSON_INVALID_UTF8_IGNORE: true
+#                json_encode_options: 1048576
